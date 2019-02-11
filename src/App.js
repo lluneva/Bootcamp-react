@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Posts from "./components/Posts/Posts";
+import Userlist from "./components/Userlist/Userlist"
+
+import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>
-            No worries <code>src/App.js</code> has your back.
-          </h2>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="container">
+          <div className="col-8">
+            <Posts />
+            {/* this is a selfclosing element */}
+            {/* { 4+ 4 } */}
+          </div>
+          <div className="Userlist col-4"> 
+          <Userlist/>
+          </div>
+        </div>
       </div>
     );
   }
