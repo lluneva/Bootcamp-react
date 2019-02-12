@@ -1,0 +1,43 @@
+.Wrapper {
+  padding: 0 13%;
+  background-color: rgb(0, 98, 128);
+
+}
+
+.Headertitle {
+  display: flex;
+  color:   white
+  
+}
+.Headertitle:hover {
+  color:rgb(106, 245, 129);
+  text-decoration: none
+}
+.Headertitle > img {
+  animation: Nav-logo-spin infinite 20s linear;
+  height: 7vmin;
+  pointer-events: none;
+  color:white;
+}
+@keyframes Nav-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.Headertitle > h3 {
+  margin-left: 10px;
+}
+
+.Headertitle >button{
+  background-color: rgb(5, 164, 212);
+
+  border:none;
+}
+
+.Headertitle > button:hover {
+  background-color: rgb(101, 218, 101);
+}  
+

@@ -1,8 +1,32 @@
-CardImg{
-    border-radius: 50%;
-  font-size: 50%;
+.UserCard {
+    display: flex;
+    align-items: left;
+    text-align:left;
+    justify-content: space-evenly;
+    padding: 2% 3%;
+    border-bottom: 1px solid rgb(230, 227, 227);
 }
 
-.Usercard__card-title {
-    font-weight:bolder;
+.UserCard__image {
+    flex: 1;
+}
+
+.UserCard__image__img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.UserCard__content {
+    flex: 5;
+}
+
+.UserCard__content__title {
+    font-size: 15px;
+}
+
+.UserCard__content__description {
+    font-size: 12px;
+    font-style: italic;
+    color: darkgray
 }

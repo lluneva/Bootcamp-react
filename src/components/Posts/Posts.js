@@ -36,8 +36,9 @@ class Posts extends Component {
   render() {
     return (
       <div className="Posts">
-        {posts.map(post => (
+        {posts.map((post, i) => (
           <PostCard
+            key={i}
             title={post.title}
             description={post.description}
             image={post.image}

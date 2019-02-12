@@ -1,3 +1,9 @@
+.Posts{
+    padding: 0 2%;
+    color: rgb(68, 67, 67);
+
+}
 .PostCard__card-title {
     font-weight: 700;
+
 }
