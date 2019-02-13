@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./Login.css";
 
 class Login extends Component {
@@ -18,15 +19,16 @@ class Login extends Component {
   //   onPasswordChange = e => {
   //     this.setState({ passwordInput: e.target.value });
   //   };
-// the following function is combination of the 2 above
-  onInputChange = e => {//e is an event
-    this.setState({ [e.target.name]: e.target.value }); 
+  // the following function is combination of the 2 above
+  onInputChange = e => {
+    //e is an event
+    this.setState({ [e.target.name]: e.target.value });
     //e.target is an input that is being entered in the placeholder
   };
 
   render() {
     const { emailInput, passwordInput } = this.state;
-    //   const {passwordInput} =this.state;
+    const { onLogin } = this.props;
     return (
       <div className="Login">
         <div className="Login__content">
@@ -53,8 +55,12 @@ class Login extends Component {
               />
             </div>
           </form>
-          <Button>Login</Button>
-
+          <Button onClick={() => onLogin(emailInput, passwordInput)}>
+            Login
+          </Button>
+          <div className="Register__content__link">
+            <Link to="/register">not registered?</Link>
+          </div>
         </div>
       </div>
     );

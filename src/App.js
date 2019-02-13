@@ -11,7 +11,6 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className="container">
-        
           <div className="row">
             <div className="Posts col-8">
               <Posts />
@@ -21,7 +20,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-       
       </div>
     );
   }

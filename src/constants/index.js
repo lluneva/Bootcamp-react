@@ -9,3 +9,6 @@ export const API = {
 
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS"; // name of variable can be anything, it has to be unique (and make sense).
 export const REGISTER_ERROR = "REGISTER_ERROR";
+export const LOGIN_SUCCESS="LOGIN_SUCCESS";
+export const LOGIN_ERROR="LOGIN_ERROR";
+

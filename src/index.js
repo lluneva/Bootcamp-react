@@ -7,8 +7,10 @@ import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers";
 import dotenv from "dotenv";
 import App from "./App";
-import Login from "./components/Login/Login";
+// import Login from "./components/Login/Login";
 import RegisterContainer from "./containers/RegisterContainer";
+import LoginContainer from "./containers/LoginContainer";
+
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -25,7 +27,7 @@ class Root extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={App} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" component={LoginContainer} />
             <Route exact path="/register" component={RegisterContainer} />
           </Switch>
         </BrowserRouter>
