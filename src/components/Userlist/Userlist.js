@@ -23,6 +23,11 @@ const users = [
     username: "username4",
     description: "wonder woman",
     image: userimage
+  },
+  {
+    username: "no_name",
+    description: "the invisible man",
+    image: userimage
   }
 ];
 
@@ -30,6 +35,7 @@ class Userlist extends Component {
     render () {
         return (
             <div className="Userlist"> 
+            
             {users.map((user,i) => (
                 <Usercard
                 key ={i}

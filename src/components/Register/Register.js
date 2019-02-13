@@ -17,11 +17,12 @@ class Register extends Component {
 
   render() {
       const {emailInput, passwordInput, usernameInput} =this.state;
+      const {onRegister} =this.props;
     return (
       <div className="Register">
      
         <div className="Register__content">
-          <h3> Register </h3>
+          <h2> Register </h2>
           <form>
             <div className="form-group ">
               <label>username</label>
@@ -36,7 +37,7 @@ class Register extends Component {
               <input type="password" name="passwordInput" value={passwordInput} className="form-control" onChange={this.onInputChange} />
             </div>
           </form>
-          <Button>Register</Button>
+          <Button  onClick= {()=>onRegister (usernameInput, emailInput, passwordInput)}>Register</Button>
         </div>
       </div>
     );

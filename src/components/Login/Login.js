@@ -30,7 +30,7 @@ class Login extends Component {
     return (
       <div className="Login">
         <div className="Login__content">
-          <h3> Login </h3>
+          <h2> Login </h2>
           <form>
             <div className="form-group ">
               <label>email</label>

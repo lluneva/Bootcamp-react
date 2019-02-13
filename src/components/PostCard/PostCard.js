@@ -10,7 +10,7 @@ class PostCard extends Component {
     return (
       <Card className="PostCard mb-5">
         <CardImg top width="100%" src={image} alt="Card image cap" />
-        <CardBody>
+        <CardBody className="PostCard__cardBody">
           <CardTitle className="PostCard__card-title">{title}</CardTitle>
           <CardText>{description}</CardText>
         </CardBody>

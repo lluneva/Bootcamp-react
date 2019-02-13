@@ -32,7 +32,7 @@ onCloseModal =() => {
             <img src={logoImage} alt=" logo " />
             <h3>postagram</h3>
           </a>
-          <button onClick= {this.onOpenModal} type="button" className="btn btn-dark Headertitle__button">
+          <button onClick= {this.onOpenModal} type="button" className="btn btn-secondary Headertitle__button">
             Upload
           </button>
           {isOpen && <PostModal onClose={this.onCloseModal}/>}
