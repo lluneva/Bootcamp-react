@@ -2,12 +2,18 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   LOGIN_SUCCESS,
-  LOGIN_ERROR
+  LOGIN_ERROR,
+  GET_USERS_ERROR,
+  GET_USERS_SUCCESS,
+  GET_POSTS_ERROR,
+  GET_POSTS_SUCCESS
 } from "../../constants";
 
 const defaultState = {
   isRegistered: false,
-  isLoggedIn: false
+  isLoggedIn: false,
+  users: null,
+  posts: null
 };
 
 export const registerReducer = (state = defaultState, action) => {
@@ -31,6 +37,30 @@ export const loginReducer = (state = defaultState, action) => {
       return { ...state, isLoggedIn: true };
     case LOGIN_ERROR:
       return { ...state, isLoggedIn: false };
+    default:
+      return state;
+  }
+};
+
+export const getUsersReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case GET_USERS_SUCCESS:
+      return { ...state, users: action.payload };
+    case GET_USERS_ERROR:
+      return { ...state, users: null };
+
+    default:
+      return state;
+  }
+};
+
+export const getPostsReducer = (state = defaultState, action) => {
+  switch (action.type) {
+    case GET_POSTS_SUCCESS:
+      return { ...state, posts: action.payload.reverse() };
+    case GET_POSTS_ERROR:
+      return { ...state, posts: null };
+
     default:
       return state;
   }

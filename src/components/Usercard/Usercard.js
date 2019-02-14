@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 // import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
-// import userimage from "../../assets/user-icon.png";
 
 import "./Usercard.css";
 

@@ -23,6 +23,7 @@
 
 .UserCard__content__title {
     font-size: 15px;
+    padding-left: 10px;
 }
 
 .UserCard__content__description {

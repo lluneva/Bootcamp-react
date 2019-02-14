@@ -29,6 +29,6 @@ const mapDispatchToProps = {
 };
 
 export default connect(
-  mapStateToProps,
+  mapStateToProps, // this is what is being whatched for changes in store
   mapDispatchToProps
 )(LoginContainer);

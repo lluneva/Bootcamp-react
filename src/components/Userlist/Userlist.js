@@ -1,52 +1,53 @@
 import React, { Component } from "react";
-import userimage from "../../assets/user-icon.png";
+import defaultUserImg from "../../assets/user-icon.png";
 import Usercard from "../Usercard/Usercard.js";
-import './Userlist.css'
+import "./Userlist.css";
 
-const users = [
-  {
-    username: "username1",
-    description: "superwoman",
-    image: userimage
-  },
-  {
-    username: "username2",
-    description: "superman",
-    image: userimage
-  },
-  {
-    username: "username3",
-    description: "aquaman",
-    image: userimage
-  },
-  {
-    username: "username4",
-    description: "wonder woman",
-    image: userimage
-  },
-  {
-    username: "no_name",
-    description: "the invisible man",
-    image: userimage
-  }
-];
+// const users = [
+//   {
+//     username: "MarionB",
+//     description: "superwoman",
+//     image: userimage
+//   },
+//   {
+//     username: "John",
+//     description: "spiderman",
+//     image: userimage
+//   },
+//   {
+//     username: "Rogan",
+//     description: "aquaman",
+//     image: userimage
+//   },
+//   {
+//     username: "username4",
+//     description: "wonder woman",
+//     image: userimage
+//   },
+//   {
+//     username: "granB",
+//     description: "the invisible man",
+//     image: userimage
+//   }
+// ];
 
 class Userlist extends Component {
-    render () {
-        return (
-            <div className="Userlist"> 
-            
-            {users.map((user,i) => (
-                <Usercard
-                key ={i}
-                username={user.username}
-                description ={user.description}
-                userimage={user.image}
-                />
-            ))}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="Userlist">
+        {this.props.users &&
+          this.props.users.map((user, index) => (
+            <Usercard
+              key={`userCard${index}`}
+              username={user.username}
+              email={user.email}
+              description={user.description}
+              userimage={user.userimage || defaultUserImg}
+            />
+          ))}
+      </div>
+    );
+  }
 }
 
 export default Userlist;

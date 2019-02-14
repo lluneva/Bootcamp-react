@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Header from "./components/Header/Header";
-import Posts from "./components/Posts/Posts";
-import Userlist from "./components/Userlist/Userlist";
+// import Posts from "./components/Posts/Posts";
+import UserlistContainer from "./containers/UserlistContainer";
 
 import "./App.css";
+import PostsContainer from "./containers/PostsContainer";
 
 class App extends Component {
   render() {
@@ -13,10 +14,10 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="Posts col-8">
-              <Posts />
+              <PostsContainer />
             </div>
             <div className="Userlist col-4">
-              <Userlist />
+              <UserlistContainer />
             </div>
           </div>
         </div>

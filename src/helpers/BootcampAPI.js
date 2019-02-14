@@ -6,7 +6,7 @@ class APIClass {
     // this says if there is no response within 1 sec, we move on
     this.instance = axios.create({
       baseURL: process.env.REACT_APP_APIURL,
-      timeout: 1000
+      timeout: 10000
     });
   }
 

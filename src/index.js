@@ -10,7 +10,6 @@ import App from "./App";
 // import Login from "./components/Login/Login";
 import RegisterContainer from "./containers/RegisterContainer";
 import LoginContainer from "./containers/LoginContainer";
-
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -29,6 +28,7 @@ class Root extends Component {
             <Route exact path="/" component={App} />
             <Route exact path="/login" component={LoginContainer} />
             <Route exact path="/register" component={RegisterContainer} />
+
           </Switch>
         </BrowserRouter>
       </Provider>
@@ -36,4 +36,5 @@ class Root extends Component {
   }
 }
 
+// when this is called  it starts with calling the constructor of the specific component
 ReactDOM.render(<Root />, document.getElementById("root"));

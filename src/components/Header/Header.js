@@ -26,6 +26,7 @@ onCloseModal =() => {
     const {isOpen}=this.state;
 
     return (
+      
       <div className="Wrapper">
         <nav className="Headertitle navbar">
           <a className="Headertitle" href=" #">

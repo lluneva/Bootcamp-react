@@ -5,7 +5,11 @@ import {
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   LOGIN_ERROR,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  GET_USERS_SUCCESS,
+  GET_USERS_ERROR,
+  GET_POSTS_SUCCESS,
+  GET_POSTS_ERROR
 } from "../../constants";
 
 /*------actions------*/
@@ -37,8 +41,35 @@ const loginError = () => {
   };
 };
 
-/*------action creators------*/
+const getUsersSuccess = res => {
+  return {
+    type: GET_USERS_SUCCESS,
+    payload: res.data.payload
+  };
+};
+
+const getUsersError = () => {
+  return {
+    type: GET_USERS_ERROR
+  };
+};
+
+const getPostsSucess = res => {
+  return {
+    type: GET_POSTS_SUCCESS,
+    payload: res.data.payload
+  };
+};
+
+const getPostsError = () => {
+  return {
+    type: GET_POSTS_ERROR
+  };
+};
+
 //functions that create actions
+
+/*------action creators------*/
 
 const register = (username, email, password) => {
   return dispatch => {
@@ -55,9 +86,8 @@ const register = (username, email, password) => {
 const login = (email, password) => {
   return dispatch => {
     return BootcampAPI.post(API.LOGIN, {
-      // API endpoints 
-      // these are the variables that API is expecting from user
-      email:email,
+      // API endpoints .these are the variables that API is expecting from user
+      email: email,
       hashedPassword: CryptoJS.SHA256(password).toString() //?
     })
       .then(res => {
@@ -69,4 +99,27 @@ const login = (email, password) => {
   };
 };
 
-export { register, login }; // var sadi ekportet vai vards export pirms const register
+const getUsers = () => {
+  return dispatch => {
+    return BootcampAPI.get(API.GET_USERS)
+      .then(res => dispatch(getUsersSuccess(res)))
+      .catch(err => {
+        console.log(err);
+        dispatch(getUsersError());
+      });
+  };
+};
+
+
+const getPosts = () => {
+  return dispatch => {
+    return BootcampAPI.get(API.GET_POSTS)
+      .then(res => dispatch(getPostsSucess(res)))
+      .catch(err => {
+        console.log(err);
+        dispatch(getPostsError());
+      });
+  };
+};
+
+export { register, login, getUsers, getPosts }; // var sadi ekportet vai vards export pirms const register
