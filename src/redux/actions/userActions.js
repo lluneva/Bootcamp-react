@@ -150,4 +150,15 @@ const submitPost = (formData, caption) => {
   };
 };
 
-export { register, login, getUsers, getPosts, submitPost }; // var sadi ekportet vai vards export pirms const register
+ const validateToken = () => {
+  const token = localStorage.getItem("jwtToken");
+  if (token) {
+    // if there is a token
+    return true;
+  }
+  return false;
+};
+
+
+
+export { register, login, getUsers, getPosts, submitPost , validateToken}; // var sadi ekportet vai vards export pirms const register

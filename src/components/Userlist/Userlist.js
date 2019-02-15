@@ -34,18 +34,20 @@ import "./Userlist.css";
 class Userlist extends Component {
   render() {
     return (
-      <div className="Userlist">
-      <h4> Users </h4>
-        {this.props.users &&
-          this.props.users.map((user, index) => (
-            <Usercard
-              key={`userCard${index}`}
-              username={user.username}
-              email={user.email}
-              description={user.description}
-              userimage={user.userimage || defaultUserImg}
-            />
-          ))}
+      <div className="Userlist  ">
+        <h4> Users </h4>
+        <div className="scrollbar scrollbar-primary">
+          {this.props.users &&
+            this.props.users.map((user, index) => (
+              <Usercard className="Usercard__user"
+                key={`userCard${index}`}
+                username={user.username}
+                email={user.email}
+                description={user.description}
+                userimage={user.userimage || defaultUserImg}
+              />
+            ))}
+        </div>
       </div>
     );
   }

@@ -9,12 +9,13 @@ class LoginContainer extends Component {
     if (!email || !password) {
       return;
     }
-    this.props.login(email, password);
+    this.props.login(email, password).then(() => {
+      this.props.history.push("/");
+    });
   };
 
   render() {
-    const { isLoggedIn } = this.props;
-    return isLoggedIn ? <Redirect to="/" /> : <Login onLogin={this.onLogin} />;
+    return <Login onLogin={this.onLogin} />;
   }
 }
 

@@ -4,12 +4,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
 import { Provider } from "react-redux";
+// import ProtectedRoute from "react-router-protected-route";
 import rootReducer from "./redux/reducers";
 import dotenv from "dotenv";
 import App from "./App";
 // import Login from "./components/Login/Login";
 import RegisterContainer from "./containers/RegisterContainer";
 import LoginContainer from "./containers/LoginContainer";
+import ProtectedRoute from "./components/ProtectedRoute/Index";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -30,7 +32,7 @@ class Root extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={App} />
+            <ProtectedRoute exact path="/" component={App}/>
             <Route exact path="/login" component={LoginContainer} />
             <Route exact path="/register" component={RegisterContainer} />
           </Switch>

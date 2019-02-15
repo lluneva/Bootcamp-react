@@ -1,6 +1,19 @@
 .Userlist {
-    background-color: white;
-    border-radius: 5px;
-    color: rgb(68, 67, 67);
+  background-color: white;
+  border-radius: 5px;
+  color: rgb(68, 67, 67);
+}
+.Userlist>h4 {
+    color: rgb(200, 27, 94);
+    font-size: medium;;
+    text-align: left;
+    padding-left : 10px;
 
+}
+
+.scrollbar {
+  border: solid white 2px;
+  box-shadow: inset 0 5px 5px   #a19e9e;
+  height: 250px;
+  overflow-y: scroll;
 }
