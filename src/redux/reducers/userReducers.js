@@ -6,7 +6,9 @@ import {
   GET_USERS_ERROR,
   GET_USERS_SUCCESS,
   GET_POSTS_ERROR,
-  GET_POSTS_SUCCESS
+  GET_POSTS_SUCCESS,
+  POST_SUBMITTED_ERROR,
+  POST_SUBMITTED_SUCCESS
 } from "../../constants";
 
 const defaultState = {
@@ -58,9 +60,10 @@ export const getPostsReducer = (state = defaultState, action) => {
   switch (action.type) {
     case GET_POSTS_SUCCESS:
       return { ...state, posts: action.payload.reverse() };
+    case POST_SUBMITTED_SUCCESS:
+      return { ...state, posts: [action.payload, ...state.posts] };
+    case POST_SUBMITTED_ERROR:
     case GET_POSTS_ERROR:
-      return { ...state, posts: null };
-
     default:
       return state;
   }

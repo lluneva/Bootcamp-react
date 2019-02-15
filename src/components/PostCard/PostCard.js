@@ -8,7 +8,7 @@ class PostCard extends Component {
       const {title, description, image} = this.props;
 
     return (
-      <Card className="PostCard mb-5">
+      <Card className="PostCard">
         <CardImg top width="100%" src={image} alt="Card image cap" />
         <CardBody className="PostCard__cardBody">
           <CardTitle className="PostCard__card-title">{title}</CardTitle>

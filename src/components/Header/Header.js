@@ -5,38 +5,37 @@ import PostModal from "../PostModal/PostModal";
 import "./Header.css";
 
 class Header extends Component {
-  constructor(){
-    super();
-    this.state={
-      isOpen:false,
-    };
-    // this.onOpenModal=this.onOpenModal.bind(this); 
-    //but if we use arrow function as vbelow, we do not need to bind
-  }
-
-onOpenModal =() => {
-  this.setState({isOpen:true})
-}
-onCloseModal =() => {
-  this.setState({isOpen:false})
-}
-
-
   render() {
-    const {isOpen}=this.state;
+    const {
+      isOpen,
+      toggleModal,
+      onCaptionInputChange,
+      onImageUpload,
+      onPostSubmit
+    } = this.props;
 
     return (
-      
       <div className="Wrapper">
         <nav className="Headertitle navbar">
           <a className="Headertitle" href=" #">
             <img src={logoImage} alt=" logo " />
             <h3>postagram</h3>
           </a>
-          <button onClick= {this.onOpenModal} type="button" className="btn btn-secondary Headertitle__button">
+          <button
+            onClick={toggleModal}
+            type="button"
+            className="btn btn-secondary Headertitle__button"
+          >
             Upload
           </button>
-          {isOpen && <PostModal onClose={this.onCloseModal}/>}
+          {isOpen && (
+            <PostModal /*this is passing down to PostModal*/
+              onCaptionInputChange={onCaptionInputChange}
+              onClose={toggleModal}
+              onImageUpload={onImageUpload}
+              onPostSubmit={onPostSubmit}
+            />
+          )}
         </nav>
       </div>
     );

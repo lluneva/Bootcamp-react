@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 import BootcampAPI from "../../helpers/BootcampAPI";
-import { API } from "../../constants";
 import {
+  API,
   REGISTER_ERROR,
   REGISTER_SUCCESS,
   LOGIN_ERROR,
@@ -9,7 +9,9 @@ import {
   GET_USERS_SUCCESS,
   GET_USERS_ERROR,
   GET_POSTS_SUCCESS,
-  GET_POSTS_ERROR
+  GET_POSTS_ERROR,
+  POST_SUBMITTED_ERROR,
+  POST_SUBMITTED_SUCCESS
 } from "../../constants";
 
 /*------actions------*/
@@ -67,9 +69,20 @@ const getPostsError = () => {
   };
 };
 
-//functions that create actions
+const postSubmittedSuccess = res => {
+  return {
+    type: POST_SUBMITTED_SUCCESS,
+    payload: res.data.payload
+  };
+};
 
-/*------action creators------*/
+const postSubmittedError = () => {
+  return {
+    type: POST_SUBMITTED_ERROR
+  };
+};
+
+/*------action creators (functions that create actions)------*/
 
 const register = (username, email, password) => {
   return dispatch => {
@@ -86,7 +99,6 @@ const register = (username, email, password) => {
 const login = (email, password) => {
   return dispatch => {
     return BootcampAPI.post(API.LOGIN, {
-      // API endpoints .these are the variables that API is expecting from user
       email: email,
       hashedPassword: CryptoJS.SHA256(password).toString() //?
     })
@@ -110,7 +122,6 @@ const getUsers = () => {
   };
 };
 
-
 const getPosts = () => {
   return dispatch => {
     return BootcampAPI.get(API.GET_POSTS)
@@ -121,5 +132,22 @@ const getPosts = () => {
       });
   };
 };
+const submitPost = (formData, caption) => {
+  return dispatch => {
+    return BootcampAPI.post(API.POST_IMAGE, formData)
+      .then(res => {
+        console.log(res);
+        return BootcampAPI.post(API.POST_CAPTION, {
+          // sanemam contentId no formData un liekam ieksa nakamaj
+          caption,
+          contentId: res.data.payload.contentId
+        }).then(res => dispatch(postSubmittedSuccess(res)));
+      })
+      .catch(err => {
+        console.error(err);
+        dispatch(postSubmittedError());
+      });
+  };
+};
 
-export { register, login, getUsers, getPosts }; // var sadi ekportet vai vards export pirms const register
+export { register, login, getUsers, getPosts, submitPost }; // var sadi ekportet vai vards export pirms const register
